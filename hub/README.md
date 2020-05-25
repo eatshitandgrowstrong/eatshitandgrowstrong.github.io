@@ -1,2 +1,0 @@
-# eatshitandgrowstrong.github.io
- 
