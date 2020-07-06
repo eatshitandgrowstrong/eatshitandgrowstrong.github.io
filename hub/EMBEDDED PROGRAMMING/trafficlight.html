@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Traffic Light Example</title>
+
+</head>
+
+<body>
+
+    <h1>Traffic Light example</h1>
+    
+    <p>This is an example of a traffic light for motorists using the arduino and some LEDs.</p>
+
+    <video width="1920" height="1080" controls>
+        <source src="../videos/trafficlight.m4v" type="video/mp4">
+    </video>
+
+    <p>Below is the source code:</p>
+    
+    <img src="../images/documentation/Embedded Programming/trafficlightcode.png">
+
+    <p>I first start by configuring my input and output pins, in this case, using the integrated INPUT_PULLUP resistor for my input.</p>
+
+    <p>By default, the traffic light for motorists is green, with the other yellow and red LEDs at the LOW status.</p>
+
+    <p>When the push button is pressed by a pedestrian, due to the switch being default 'pulled HIGH' by the INPUT_PULLUP resistor, the push button is at an active LOW state when it is pushed.</p>
+
+    <p>The push button therefore sends a LOW signal to the input.</p>
+    
+    <p>When the input LOW is received, the microcontroller delays and waits for 5 seconds before turning on the yellow LED to indicate to motorists to slow down and switches off the green LED.</p>
+
+    <p>After another 4 seconds, the yellow LED is turned off and the red LED is turned on for 10 seconds.</p>
+
+    <p>With the help of a 'for loop' I am able to have a 'flasher' LED flash on and off for half a second after 5 seconds to indicate to pedestrians that the traffic is turning green soon.</p>
+    
+</body>
+
+</html>
