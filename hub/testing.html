@@ -13,6 +13,112 @@
     
     <iframe src="https://drive.google.com/file/d/1x-DOIe4YYaAbovj4DGz22q_ere0aHXdz/preview" width="640" height="480"></iframe>
 
+<figure>
+    <figcaption>Code title here</figcaption>
+    <pre>
+        <code>
+//INITIALISE THE LEDS
+
+
+const int RGBred = 3;
+const int RGBgreen = 5; 
+const int RGBblue = 6;
+
+//const int pushbutton = 8; //PUSH BUTTON NOT UTILIZED
+
+
+void setup() {
+  // put your setup code here, to run once:
+pinMode(RGBred,OUTPUT);
+pinMode(RGBgreen,OUTPUT);
+pinMode(RGBblue,OUTPUT);
+
+//pinMode(pushbutton,INPUT_PULLUP); //PUSH BUTTON NOT UTILIZED
+
+Serial.begin(9600); //SERIAL FOR DEBUGGING
+
+randomSeed(analogRead(0));
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+int red,green,blue;
+
+int redrandom=0,greenrandom=0,bluerandom=0;
+
+red=random(0,255);
+green=random(0,255);
+blue=random(0,255);
+Serial.print(red);
+
+  while(1){
+    
+    if (red<=0)
+    {
+    redrandom=0;
+    }
+    if (red>=255)
+    {
+    redrandom=1;
+    }
+    if(redrandom==0)
+    {
+    red+=1;
+    }
+    if (redrandom==1)
+    {
+    red-=1;
+    }
+
+    if (green<=0)
+    {
+    greenrandom=0;
+    }
+    if (green>=255)
+    {
+    greenrandom=1;
+    }
+    if(greenrandom==0)
+    {
+    green+=1;
+    }
+    if (greenrandom==1)
+    {
+    green-=1;
+    }
+
+    if (blue<=0)
+    {
+    bluerandom=0;
+    }
+    if (blue>=255)
+    {
+    bluerandom=1;
+    }
+    if(bluerandom==0)
+    {
+    blue+=1;
+    }
+    if (bluerandom==1)
+    {
+    blue-=1;
+    }
+    
+     analogWrite(RGBred,red);
+     analogWrite(RGBgreen,green);
+     analogWrite(RGBblue,blue);
+    
+     delay(10);
+}
+
+}
+
+        </code>
+     </pre>
+</figure>
+
     
 </body>
 

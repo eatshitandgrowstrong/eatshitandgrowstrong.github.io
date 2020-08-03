@@ -12,6 +12,13 @@
 
     <h1>RGB LED</h1>
 
+    <h2>Interfacing with RGB LEDs</h2>
+
+    <p>There are 2 types of RGB LEDs:</p>
+    <img src="../images/documentation/Embedded Programming/rgb-led-pin.png">
+
+    <p>We have been issued common Cathode RGB LEDs, </p>
+
     <video width="1920" height="1080" controls>
         <source src="../videos/Rgbledbright-1.m4v" type="video/mp4">
     </video>
@@ -19,6 +26,117 @@
     <video width="1920" height="1080" controls>
         <source src="../videos/Rgbleddark-1.m4v" type="video/mp4">
     </video>
+
+<figure>
+    <figcaption>Here is the code for the RGB LED</figcaption>
+    <pre>
+<code>//INITIALISE THE LEDS
+
+    //USE ONLY ANALOG PINS 3 5 6 ETC, NO 2 OR 4 FOR EXAMPLE
+    const int RGBred = 3;
+    const int RGBgreen = 5; 
+    const int RGBblue = 6;
+    
+    //const int pushbutton = 8; //PUSH BUTTON NOT UTILIZED
+    
+    
+    void setup() {
+      // put your setup code here, to run once:
+    //CONFIGURE OUTPUTS
+    pinMode(RGBred,OUTPUT);
+    pinMode(RGBgreen,OUTPUT);
+    pinMode(RGBblue,OUTPUT);
+    
+    //pinMode(pushbutton,INPUT_PULLUP); //PUSH BUTTON NOT UTILIZED
+    
+    Serial.begin(9600); //SERIAL FOR DEBUGGING
+    
+    randomSeed(analogRead(0)); //THIS IS IMPORTANT FOR A RANDOM random(
+    //WITHOUT THIS RANDOM() WILL USE THE SAME SEED EVERYTIME, RESULTING IN AN IDENTICAL COLOR AT THE START
+    //WITH THIS, THE COLOR AT THE START WILL BE RANDOMISED
+    
+    }
+    
+    void loop() {
+      // put your main code here, to run repeatedly:
+    
+    int red,green,blue; //INITIALISE THE OUTPUT STEPS OF RGB, O TO 255, NOT REQUIRED TO INITIALSE VALUE SINCE IT WILL BE DONE THROUGH RANDOM()
+    
+    int redrandom=0,greenrandom=0,bluerandom=0; 
+    //REDRANDOM,GREENRANDOM ETC ARE TO MAKE THE LEDS NOT FLICKER WHEN HEADING FROM 255 TO 0 OR VICE VERSA
+    //MORE EXPLAINED BELOW 
+    
+    red=random(0,255); //THE STARTING OUTPUT FROM 0 TO 255 IS RANDOMISED, MAKING FOR A RANDOM COLOR AT THE START
+    green=random(0,255); //SAME FOR GREEN
+    blue=random(0,255); //AND RED
+    Serial.print(red); //SERIAL PRINT RED FOR DEBUGGING AND TO SHOW RED IS RANDOM EVERYTIME
+    
+      while(1){ //LOOP THIS, IF I USE THE VOID LOOP, IT WILL RESET MY RANDOM() EVERYTIME
+        
+        if (red<=0) //IF RED IS 0 , COUNT UP
+        {
+        redrandom=0;
+        }
+        if (red>=255) //RED IS 255 OR ABOVE, COUNT DOWN
+        {
+        redrandom=1;
+        }
+        if(redrandom==0)
+        {
+        red+=1; //IF RED HITS 0, COUNT UP THROUGH RED=RED+1
+        }
+        if (redrandom==1)
+        {
+        red-=1; //IF RED HITS 255, COUNT DOWN THROUGH RED=RED-1
+        }
+    
+        if (green<=0) //REPEAT FOR THE REST TO PREVENT FLICKERING FROM CHANGE OF STATE OF O TO 255 OR VICE VERSA
+        {
+        greenrandom=0;
+        }
+        if (green>=255)
+        {
+        greenrandom=1;
+        }
+        if(greenrandom==0)
+        {
+        green+=1;
+        }
+        if (greenrandom==1)
+        {
+        green-=1;
+        }
+    
+        if (blue<=0) //REPEAT FOR THE REST TO PREVENT FLICKERING FROM CHANGE OF STATE OF O TO 255 OR VICE VERSA
+        {
+        bluerandom=0;
+        }
+        if (blue>=255)
+        {
+        bluerandom=1;
+        }
+        if(bluerandom==0)
+        {
+        blue+=1;
+        }
+        if (bluerandom==1)
+        {
+        blue-=1;
+        }
+        
+         analogWrite(RGBred,red); //ANALOG OUTPUT RED 
+         analogWrite(RGBgreen,green); //ANALOG OUTPUT GREEN
+         analogWrite(RGBblue,blue); //ANALOG OUTPUT BLUE
+        
+         delay(10); //DELAY FOR 10MS, TOO SLOW AND COLOR CHANGE IS NOT AS OBVIOUS
+         //PROBABLY REPLACE WITH MILLIS FOR BETTER CODE
+    }
+    
+    }
+
+</code>
+        </pre>
+</figure>
     
 </body>
 

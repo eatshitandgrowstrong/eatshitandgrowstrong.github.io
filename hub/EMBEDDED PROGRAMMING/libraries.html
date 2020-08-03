@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title><!--title here--></title>
+
+</head>
+
+<body>
+
+    <h1>Libraries</h1>
+    
+    <h2>What are libraries?</h2>
+
+    <p></p>
+
+    <h2>Including libraries with the Arduino IDE</h2>
+
+    <p>First, find the library that you would like to include.</p>
+
+    <p>In this case I would like to down a DHT library for my DHT11 sensor.</p>
+
+    <p>Find a github repository or any download for a .zip file</p>
+
+    <p>In this case, since this is a github repository I just download the entire repository as a .zip file as shown below.</p>
+
+    <img src="../images/documentation/Embedded Programming/githubdownload.png" widht=50%>
+
+    <p>There is no need to extract the .zip file after download.</p>
+
+    <p>Simply open the Arduino IDE and navigate as shown in the image below:</p>
+
+    <img src="../images/documentation/Embedded Programming/ziplibrary.png" width=50%>
+
+    <p>After clicking on 'Add .zip library', simply select the .zip library through the file explorer.</p>
+
+    <p>After that is done, the added library should show up as shown below:</p>
+
+    <img src="../images/documentation/Embedded Programming/includedlibrary.png" width=50%>
+
+    <p>Now that the library has been included, simply include the relevant header files at the start of the program to be able to call upon their functions.</p>
+
+    <p>For instance, if I want to include the DHT library to read temperature and humidity from my DHT11 sensor I simply use the following:</p>
+
+<figure>
+    <pre><code>
+         #include &lt;Adafruit_Sensor.h&gt;
+        #include &lt;DHT.h&gt;
+        #include &lt;DHT_U.h&gt;
+      </code></pre>
+</figure>
+
+</body>
+
+</html>
