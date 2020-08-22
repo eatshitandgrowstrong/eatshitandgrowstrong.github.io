@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Implementation</title>
+
+</head>
+
+<body>
+
+    <h1>Implementation</h1>
+
+    <p>In this part on documentation, I will be documenting the implementation of electronics in my project, implementing them on copper stripboards from my paper plans.</p>
+
+    <h2>Tools used</h2>
+
+    <p>Before I start, I would like to share/document about the tools used during this process.</p>
+    
+    <ol>
+        <li>Soldering iron
+            <ul>
+                <li>The soldering iron I used was an Antex 25W soldering iron with a flat tip. No fancy soldering station or soldering tips required. Tips are personal preference, when soldering through hole components flat tips are my preference.</li>
+            </ul>
+        </li>
+        <li>Solder
+            <ul>
+                <li>As most of my soldering work was done at the T14 fablab, I used the lab's provided Asashi lead free solder which is pretty fantastic. The solder forms shiny joints which can be seen in pictures later.</li>
+            </ul>
+        </li>
+        <li>Tip cleaner
+            <ul>
+                <li>The tip cleaner is just a container with brass shavings inside, allowing me to wipe off excess solder</li>
+            </ul>
+        </li>
+        <li>Fume Extractor
+            <ul>
+                <li>Again, using the T14 fablab equipment, I used this fume extractor, with me doing my soldering below it such that fumes are sucked up by it. Soldering fumes are pretty bad and I definitely would not like any of that in my lungs.</li>
+                <!--Place holder for image of fume extRactor-->
+            </ul>
+        </li>
+        <li>Clamp
+            <ul>
+                <li>Clamp used to hold my components such as copper stripboard or wires in place whilst soldering</li>
+                <img src="../images/documentation/project/clamp.jpg" width=50%>
+                <p>In the image above is how I used the clamp to hold my stripboard in place while I was soldering on the copper threads up top.</p>
+            </ul>
+        </li>
+        <li>Electrical Tape
+            <ul>
+                <li>I have a pretty bad habit of using electrical tape to tape small components to the underside of copper stripboards to prevent them from falling out or moving when soldering. I guess it works but there are better approaches.</li>
+            </ul>
+        </li>
+        <li>Wire Stripper
+            <ul>
+                <li>To strip the housing of wires, allow the exposed core to be used for soldering</li>
+            </ul>
+        </li>
+        <li>Wire cutters/snippers
+            <ul>
+                <li>To snip off excess length when soldering or for preparing the right length for jumper cables</li>
+            </ul>
+        </li>
+        <li>Digital Multimeter
+            <ul>
+                <li>A very handy tool to </li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <li></li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Electronics Implementation</h2>
+
+    <h3>6V battery pack</h3>
+
+    <p>I had originally planned for my battery pack to be connected to my boards and arduinos separately. However, by plugging it directly into the 'VIN' port on the arduino, I can use the onboard voltage regulators on the Arduino Uno to reduce the 6+ volts from my battery pack to 5V.</p>
+
+    <p>So, I would have to cut some male dupont connectors and solder them to the cables of my battery pack.</p>
+
+    <p>I first start by cutting a Male to Male dupont connector in half, giving me 2 male connectors for the battery pack to plug into the 2 female connectors on the Arduino Uno.</p>
+
+    <img src="../images/documentation/project/split dupont.jpg" width=50%>
+
+    <img src="../images/documentation/project/battery pack.jpg" width=50%>
+
+    <p>Here is my battery pack, as can be seen, there are 2 multicore cables, one black for ground and one red for VCC.</p>
+
+    <p>I first started by soldering the another multicore cable extension to the two cables as I didn't want to cut the original cables soldered to the battery pack as redoing the cable could take a long time or even be impossible. By soldering an extension, I can cut down the extension instead of the original cable.</p>
+
+    <p>I pre-thinned before cables with solder before applying heat and joining both cables</p>
+
+    <img src="../images/documentation/project/soldered wire.jpg" width=50%>
+
+    <img src="../images/documentation/project/soldered wires.jpg" width=50%>
+
+    <p>Certainly not my best soldering job but it does the job.</p>
+
+    <p>I think that this is one of the areas where I would prefer a soldering station, by adjusting the tip temperature to a lower temperature where solder can still be melted, less heat can be applied to the cable and in turn the cable housing, which melted slightly due to the excessive heat applied.</p>
+
+
+
+    <p>I repeated this for the extension as well as the dupont cables, here is the final result:</p>
+
+    <img src="" width=50%>
+
+    <p>I think that connecting it to the 5V terminals on the arduino was a great idea, when measuring the terminals of the battery pack I got </p>
+
+
+
+
+</body>
+
+</html>
